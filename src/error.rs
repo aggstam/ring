@@ -180,6 +180,11 @@ impl KeyRejected {
     pub(crate) fn unexpected_error() -> Self {
         Self("UnexpectedError")
     }
+
+    /// The value returned from <Self as std::error::Error>::description()
+    pub fn description_(&self) -> &'static str {
+        self.0
+    }
 }
 
 #[cfg(feature = "std")]
